@@ -1,0 +1,69 @@
+{# filepath: templates/bucket_list/suggestions.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Bucket List Suggestions{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;">
+            Need Inspiration?
+        </h1>
+        <p style="font-family: 'Playfair Display', sans-serif; font-size: 1.5rem; font-weight: 400; max-width: 700px; margin: 0 auto;">
+            Discover new ideas to add to your bucket list and make your dreams even bigger!
+        </p>
+    </div>
+
+    <!-- Suggestion Section -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                {% if error %}
+                    <div class="alert alert-danger text-center" role="alert">
+                        {{ error }}
+                    </div>
+                {% else %}
+                    <div id="suggestion-card" class="card shadow-sm" data-aos="fade-up">
+                        <div class="card-body text-center">
+                            <p id="suggestion-display" class="card-text fw-bold text-dark" style="font-size: 1.25rem;">
+                                {{ suggestion }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="text-center mt-4">
+            <a href="/bucket-list" class="btn btn-primary mt-3">
+                <i class="bi bi-arrow-left-circle"></i> Back to Bucket List
+            </a>
+            <a href="/bucket-list/suggestions" class="btn btn-success mt-3">
+                <i class="bi bi-lightbulb"></i> Get Another Suggestion
+            </a>
+            <button id="refresh-suggestion" class="btn btn-secondary mt-3">
+                <i class="bi bi-arrow-clockwise"></i> Refresh Suggestion
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Refresh -->
+    <script>
+        document.getElementById('refresh-suggestion').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/bucket-list/suggestions');
+                const data = await response.json();
+
+                if (data.suggestion) {
+                    document.getElementById('suggestion-display').textContent = data.suggestion;
+                } else {
+                    document.getElementById('suggestion-display').textContent = 'No suggestion available.';
+                }
+            } catch (error) {
+                document.getElementById('suggestion-display').textContent = 'Error fetching suggestion.';
+                console.error(error);
+            }
+        });
+    </script>
+{% endblock %}

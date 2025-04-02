@@ -1,0 +1,52 @@
+{# filepath: templates/registration/register.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;">
+            Join Us Today!
+        </h1>
+        <p style="font-family: 'Playfair Display', sans-serif; font-size: 1.5rem; font-weight: 400; max-width: 700px; margin: 0 auto;">
+            Create an account to start building your bucket list and turn your dreams into reality!
+        </p>
+    </div>
+
+    <!-- Registration Form Section -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm" data-aos="fade-up">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Register</h5>
+                        {{ form_start(registrationForm, { 'attr': { 'class': 'registration-form' } }) }}
+                            <div class="mb-3">
+                                {{ form_widget(registrationForm.email, { 'attr': { 'class': 'form-control', 'placeholder': 'Enter your email' } }) }}
+                                {{ form_errors(registrationForm.email) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_widget(registrationForm.first_name, { 'attr': { 'class': 'form-control', 'placeholder': 'Enter your first name' } }) }}
+                                {{ form_errors(registrationForm.first_name) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_widget(registrationForm.last_name, { 'attr': { 'class': 'form-control', 'placeholder': 'Enter your last name' } }) }}
+                                {{ form_errors(registrationForm.last_name) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_widget(registrationForm.plainPassword, { 'attr': { 'class': 'form-control', 'placeholder': 'Enter your password' } }) }}
+                                {{ form_errors(registrationForm.plainPassword) }}
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary mt-3">
+                                    <i class="bi bi-person-plus"></i> Register
+                                </button>
+                            </div>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

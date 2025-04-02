@@ -1,0 +1,136 @@
+# Bucket List Management Application
+
+## Description
+This is a **Bucket List Management Application** built with **Symfony**. It allows users to create, manage, and organize their bucket list items. The application also integrates with external APIs to provide suggestions for new bucket list ideas. Future plans include enabling users to connect, collaborate, and organize activities together, with potential crowdfunding features.
+
+---
+
+## Features
+
+### Current Features
+1. **User Authentication**:
+   - Users can log in and manage their personal bucket lists.
+
+2. **Bucket List Management**:
+   - View all bucket list items.
+   - Add new items to the bucket list.
+   - Mark items as completed.
+
+3. **Suggestions**:
+   - Generate bucket list suggestions based on user interests using an external API (e.g., Hugging Face).
+   - Save generated suggestions to the bucket list.
+
+4. **Responsive Design**:
+   - The application uses **Bootstrap** for a clean and responsive user interface.
+
+---
+
+### Planned Features
+1. **Social Features**:
+   - Allow users to share their bucket lists with others.
+   - Enable users to connect and organize activities together.
+
+2. **Crowdfunding**:
+   - Add a feature for users to crowdfund specific bucket list activities.
+
+3. **Advanced Organization**:
+   - Categorize bucket list items (e.g., travel, adventure, personal growth).
+   - Add deadlines and reminders for bucket list goals.
+
+4. **Community Suggestions**:
+   - Allow users to suggest bucket list ideas to others.
+
+---
+
+## Installation
+
+### Prerequisites
+- PHP 8.1 or higher
+- Composer
+- Symfony CLI
+- A database (e.g., MySQL or PostgreSQL)
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/bucket-list-app.git
+   cd bucket-list-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   composer install
+   ```
+
+3. Set up the `.env` file:
+   
+   Configure your database connection in the `.env` file:
+   ```env
+   DATABASE_URL="mysql://username:password@127.0.0.1:3306/bucket_list"
+   ```
+
+4. Run database migrations:
+   ```bash
+   php bin/console doctrine:migrations:migrate
+   ```
+
+5. Start the Symfony server:
+   ```bash
+   symfony server:start
+   ```
+
+6. Access the application in your browser:
+   ```
+   http://127.0.0.1:8000
+   ```
+
+---
+
+## Usage
+
+### Adding a New Bucket List Item
+1. Navigate to the "Add New Item" page.
+2. Fill out the form with the title and description of your bucket list item.
+3. Click "Save" to add the item to your list.
+
+### Generating Suggestions
+1. Go to the "Suggestions" page.
+2. Click "Generate Suggestion" to get a new idea for your bucket list.
+3. Save the suggestion to your list if you like it.
+
+---
+
+## Technologies Used
+- **Symfony**: Backend framework.
+- **Bootstrap**: Frontend styling.
+- **Doctrine ORM**: Database management.
+- **Hugging Face API**: For generating bucket list suggestions.
+
+---
+
+## Contributing
+Contributions are welcome! If you’d like to contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes and push the branch:
+   ```bash
+   git commit -m "Add new feature"
+   git push origin feature-name
+   ```
+
+---
+
+## License
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+
+---
+
+## Future Goals
+- Build a community platform for users to connect and collaborate on bucket list activities.
+- Add crowdfunding functionality for users to raise funds for their bucket list goals.
+- Implement advanced organizational tools like categories, deadlines, and reminders.
+

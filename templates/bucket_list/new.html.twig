@@ -1,0 +1,55 @@
+{# filepath: templates/bucket_list/new.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Bucket List Item{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;">
+            Add Your Dream to the List
+        </h1>
+        <p style="font-family: 'Playfair Display', sans-serif; font-size: 1.5rem; font-weight: 400; max-width: 700px; margin: 0 auto;">
+            Your dreams deserve a place to grow. Add a new goal to your bucket list and start turning aspirations into achievements!
+        </p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container mt-2"> <!-- Reduced margin-top from mt-4 to mt-2 -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm" data-aos="fade-up" style="margin-top: -40px;"> <!-- Increased negative margin-top -->
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Let’s Get Started!</h5>
+                        {{ form_start(form, { 'attr': { 'class': 'needs-validation' } }) }}
+                        <div class="mb-3">
+                            {{ form_label(form.title, 'Title', { 'label_attr': { 'class': 'form-label fw-bold' } }) }}
+                            {{ form_widget(form.title, { 'attr': { 'class': 'form-control', 'placeholder': 'What’s your next big dream?' } }) }}
+                            {{ form_errors(form.title) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_label(form.category, 'Category', { 'label_attr': { 'class': 'form-label fw-bold' } }) }}
+                            {{ form_widget(form.category, { 'attr': { 'class': 'form-select' } }) }}
+                            {{ form_errors(form.category) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_label(form.description, 'Description', { 'label_attr': { 'class': 'form-label fw-bold' } }) }}
+                            {{ form_widget(form.description, { 'attr': { 'class': 'form-control', 'placeholder': 'Describe your goal in detail (e.g., why it matters to you).' } }) }}
+                            {{ form_errors(form.description) }}
+                        </div>
+                        <div class="form-check mb-3">
+                            {{ form_widget(form.completed, { 'attr': { 'class': 'form-check-input', 'id': 'completed-checkbox' } }) }}
+                            {{ form_label(form.completed, 'Mark as Completed', { 'label_attr': { 'class': 'form-check-label' } }) }}
+                        </div>
+                        <div class="d-flex justify-content-center"> <!-- Center the button -->
+                            <button type="submit" class="btn btn-primary mt-4">
+                                <i class="bi bi-plus-circle"></i> Add to My Bucket List
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
